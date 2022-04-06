@@ -36,7 +36,7 @@ def input_county():
     # Om den finns, returnera rätt kommun
 
     return county
-    
+
 
 def main():
     print("Hi and welcome to Skattevärket!! How can i help you?")
@@ -63,5 +63,5 @@ def main():
 
 
 
-__name__=="__main__"
-main()
+if __name__=="__main__":
+    main()
