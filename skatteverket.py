@@ -1,32 +1,40 @@
 
-
-class Skatteverket:
-    def __init__(self, kommun, lön ) -> None:
-        self.kommun = kommun
-        self.lön = lön
-
-    def county_procent(self):
-        while True:
-            county = input("what county do you work at?")
-            with open("county.txt", "r", "UTF-8") as f:
-                lines = f.readlines()
-                if county in lines:
-                    print("so you live there.")
-                    self.procent_county()
-                    break
-                else:
-                    print("you need to put in what county you work at.")
-
-    def procent_county(self):
-        procent = input("how much do you earn?")
-        print("this is how much you need to pay")
-        with open("county.txt", "r", "UTF-8") as g:
-            line = g.readlines()
-            
+class County:
+    def __init__(self, name, percentage) -> None:
+        self.name = name
+        self.percentage = percentage
 
 
-            
-                
+class Citizen:
+    def __init__(self, name) -> None:
+        self.name = name
+
+    def municipality_procent(self, counties):
+        county = input("what municipality do you work at?")
+        for c in counties:
+            if c.name == county.capitalize():
+                self.procent_municipality(c)
+                break
+        else:
+            print("you need to put in what municipality you work at (in stockholms county ).")
+
+    def procent_municipality(self, county):
+        salary = int(input("how much do you earn?"))
+        limit1 = 504000/12
+        limit2 = 703000/12
+        if salary < limit2:
+            extra2 = limit2 - salary
+            extraextra2 = extra2 * 0.55
+            print(f"this is how much you need to pay:{salary*county.percentage + extraextra2}")
+
+        else:
+            print(f"this is how much you need to pay:{salary*county.percentage}") 
+        if salary < limit1:
+            extra1 = limit1 - salary
+            extraextra1 = extra1 * 0.5
+            print(f"this is how much you need to pay:{salary*county.percentage + extraextra1}")
+        else:
+            print(f"this is how much you need to pay:{salary*county.percentage}") 
 
         #fortsätta med att skapa metod till att ta kommun och lön för att räkna ut.
 
@@ -35,28 +43,33 @@ def input_county():
     # Be användaren mata in en kommun som finns
     # Om den finns, returnera rätt kommun
 
-    return county
+    return input_county
 
+def init_counties():
+    counties = []
+    with open("county.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            atr = line.split(",")
+            counties.append(County(atr[0],float(atr[1])))
+    return counties
 
 def main():
     print("Hi and welcome to Skattevärket!! How can i help you?")
+    counties = init_counties()
     meny=input("""
     get out your taxes baste on your county (the first one)
     pay taxes (the secound one)
     """)
     if "the first one" in meny:
-        Skatteverket.county_procent()
+        nille = Citizen("Nille")
+        nille.municipality_procent(counties)
 
     # TODO:
     # - Fråga om kommun.
     # - Fråga om lön.
     # - Skapa Skatte-objekt med dessa två attribut
 
-    county = input_county()
-    salary = int(input("What is your salary? "))
 
-    user = Skatteverket(county, salary)
-    user.calculate_treasure()
     
 
         
