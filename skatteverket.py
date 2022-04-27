@@ -13,28 +13,17 @@ class Citizen:
         county = input("what municipality do you work at?")
         for c in counties:
             if c.name == county.capitalize():
-                self.procent_municipality(c)
                 break
+            self.procent_municipality(c)
+                
+                
         else:
             print("you need to put in what municipality you work at (in stockholms county ).")
 
     def procent_municipality(self, county):
+        
         salary = int(input("how much do you earn?"))
-        limit1 = 504000/12
-        limit2 = 703000/12
-        if salary < limit2:
-            extra2 = limit2 - salary
-            extraextra2 = extra2 * 0.55
-            print(f"this is how much you need to pay:{salary*county.percentage + extraextra2}")
-
-        else:
-            print(f"this is how much you need to pay:{salary*county.percentage}") 
-        if salary < limit1:
-            extra1 = limit1 - salary
-            extraextra1 = extra1 * 0.5
-            print(f"this is how much you need to pay:{salary*county.percentage + extraextra1}")
-        else:
-            print(f"this is how much you need to pay:{salary*county.percentage}") 
+        print(f"this is how much you need to pay:{salary*county.percentage}")
 
         #fortsätta med att skapa metod till att ta kommun och lön för att räkna ut.
 
@@ -50,7 +39,7 @@ def init_counties():
     with open("county.txt", "r", encoding="utf-8") as file:
         for line in file:
             atr = line.split(",")
-            counties.append(County(atr[0],float(atr[1])))
+            counties.append(County(atr[0],atr[1]))
     return counties
 
 def main():
