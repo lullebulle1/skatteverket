@@ -10,6 +10,7 @@ class Citizen:
     def __init__(self, name) -> None:
         self.name = name
         self.county = ""
+        
     def memori(self):
         with open("memorys.txt", "w", encoding="utf8") as mems:
         #r-read
