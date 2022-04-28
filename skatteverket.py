@@ -10,8 +10,28 @@ class Citizen:
     def __init__(self, name) -> None:
         self.name = name
         self.county = ""
+    def memori(self):
+        with open("memorys.txt", "w", encoding="utf8") as mems:
+        #r-read
+        #x-create, får error om filen finns
+        #w-write, radera det som fanns
+        #a-append, skapa om inte existera.
+            print("mata in alla elever i inf20,skriv # om du vill avsluta")
+        while True:
+            elev= input("elev: ")
+            if "#" in elev:
+                break
+            else:
+                mems.write(f"{elev}\n")
+
+    with open("memorys.txt", "r", encoding="utf8") as mems:
+        print("elever in inf20")
+        for elev in mems.readlines():
+            print(elev, end="")
+            
 
     def municipality_procent(self, counties):
+        self.memori()
         while True:
             county = input("in what municipality do you work at?")
             for c in counties:
@@ -62,14 +82,14 @@ def init_counties():
 
 def main():
     name=input("hi what is your name: ")
-    x = print(f"""Hi {name}, welcome to the tax authorities, how can we be at your service today? 
+    print(f"""Hi {name}, welcome to the tax authorities, how can we be at your service today? 
     We can help you with ether geting out your taxes baste on your county or 
     pay taxes 
     """)
     message = input("Here can you write what you would like to have help with: ")
     counties = init_counties()
     if "taxes" in message:
-        print(f"okay {name}that we can help you with. If you want in the end you can fill out a form to help us to bee bettre. Tanks.")
+        print(f"okay {name} that we can help you with. If you want in the end you can fill out a form to help us to bee bettre. Tanks.")
         nille = Citizen("Nille")
         nille.municipality_procent(counties)
 
