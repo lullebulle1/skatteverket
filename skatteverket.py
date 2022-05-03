@@ -10,7 +10,7 @@ class Citizen:
     def __init__(self, name) -> None:
         self.name = name
         self.county = ""
-        
+
     def memori(self):
         with open("memorys.txt", "w", encoding="utf8") as mems:
         #r-read
@@ -32,7 +32,6 @@ class Citizen:
             
 
     def municipality_procent(self, counties):
-        self.memori()
         while True:
             county = input("in what municipality do you work at?")
             for c in counties:
@@ -45,25 +44,27 @@ class Citizen:
 
     def procent_municipality(self):
         salary = int(input("how much do you earn?"))
-        överskatt = 504000/12
-        åverskatt = 703000/12
+        överskatt = 504000/12 #42 000kr
+        åverskatt = 703000/12 #58 583kr
         if salary <= överskatt:
             print(f"this is how much you need to pay:{salary*self.county.percentage}")
-                    
+            quit()
         
-        elif salary > överskatt <= åverskatt:
+        elif salary > överskatt and salary <= åverskatt:
             överskatt1= salary - överskatt
+            print(överskatt1)
             överskatt2=överskatt1*0.5
-            print(f"this is how much you need to pay:{överskatt2*self.county.percentage + överskatt1}")
-            
+            print(överskatt2)
+            print(f"this is how much you need to pay:{överskatt*self.county.percentage + överskatt2}")
+            quit()
             #42000*0,3051= 12814,2
             #3000*0,5=1500
             #14314,2
         elif salary > åverskatt:
             åverskatt1 = salary - åverskatt
             åverskatt2 = åverskatt1*0.55
-            print(f"this is how much you need to pay:{åverskatt2*self.county.percentage + åverskatt2}")
-            
+            print(f"this is how much you need to pay:{åverskatt*self.county.percentage + åverskatt2}")
+            quit()
         #fortsätta med att skapa metod till att ta kommun och lön för att räkna ut.
 
 def input_county():
@@ -72,6 +73,7 @@ def input_county():
     # Om den finns, returnera rätt kommun
 
     return input_county
+
 
 def init_counties():
     counties = []
@@ -93,6 +95,8 @@ def main():
         print(f"okay {name} that we can help you with. If you want in the end you can fill out a form to help us to bee bettre. Tanks.")
         nille = Citizen("Nille")
         nille.municipality_procent(counties)
+    elif "pay taxes" in message:
+        pass
 
     # TODO:
     # - Fråga om kommun.
