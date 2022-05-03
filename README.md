@@ -13,3 +13,6 @@
 
  2022-04-27
 idag fixade jag buggen med hjälp av niclas. Jag la till lite saker som exempelvis att om man känner över en specefik summa, att man måste bettala extra utöver den komunala skatten. sedan har jag börjat med att i menyn ska men efter allt kunna ge fidback till kund servicen. det problem jag stötte på var att jag fick inte delen där om din lön var mellan x och y antal kr i månaden, att den inte räknade ut matten och att koden bara inte funka. sedan listade jag ut det själv utan någon hjälp.
+
+2022-05-03
+Jag har fixat matten i min kod så att den ska funka ordentligt. 
