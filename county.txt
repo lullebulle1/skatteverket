@@ -1,0 +1,26 @@
+botkyrka,0.3223
+danderyd,0.3103
+ekerö,0.3133
+haninge,0.3176
+huddinge,0.3195
+järfälla,0.3123
+lidingö,0.3007
+nacka,0.3051
+norrtälje,0.3180
+nykvarn,0.3205
+nynäshamn,0.3193
+salem,0.3175
+sigtuna,0.3208
+sollentuna,0.3020
+solna,0.2920
+stockholm,0.2982
+sundbyberg,0.3098
+södertälje,0.3223
+tyresö,0.3203
+täby,0.2963
+upplands-bor,0.3168
+upplands väsby,0.3150
+vallentuna,0.3108
+vaxholm,0.3186
+värmdö,0.3126
+österåker,0.2918
