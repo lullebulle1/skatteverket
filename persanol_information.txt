@@ -1,0 +1,12 @@
+formuler: 
+Lukas Dahlbäck
+geting out your taxes baste on were you work:1
+Where do you work at: nacka
+original salary = 50000 you will pay 16814.199999999997 as taxes
+ 
+formuler: 
+lukas
+geting out your taxes baste on were you work:1
+Where do you work at: nacka
+original salary = 40000 you will pay 12204.0 as taxes
+ 
